@@ -8,16 +8,11 @@ pipeline {
                     steps { echo " Building...."
                             sh 'mvn clean package '
                           }
-                  }
-      post {
-         success {  echo "Now Archiving..."
+         post {
+            success {  echo "Now Archiving..."
                     archieveArtifacts artifacts: '**/target/*.jar'
-                 }
-      }        
-      
-      
-     stage('Deploy'){
-                    steps { echo " Deploying...." }
-                  }
+                     }
+               } 
+     }
    }
 }
