@@ -2,7 +2,9 @@ pipeline {
    agent { label 'slave1' }
    stages{
      stage('Init'){
-                    steps { echo " Testing...." }
+                    steps { echo " Testing...." 
+                            sh 'ifconfig -a'                 
+                          }
                   }
      stage('Build'){
                     steps { echo " Building...."
